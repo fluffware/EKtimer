@@ -8,14 +8,31 @@
 
 /* Begin PBXBuildFile section */
 		F44D897C27457A43006E86AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44D897B27457A43006E86AE /* AppDelegate.swift */; };
-		F44D897E27457A43006E86AE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44D897D27457A43006E86AE /* SceneDelegate.swift */; };
-		F44D898027457A43006E86AE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44D897F27457A43006E86AE /* ViewController.swift */; };
-		F44D898327457A43006E86AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F44D898127457A43006E86AE /* Main.storyboard */; };
-		F44D898527457A47006E86AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F44D898427457A47006E86AE /* Assets.xcassets */; };
-		F44D898827457A47006E86AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F44D898627457A47006E86AE /* LaunchScreen.storyboard */; };
+		F44D898027457A43006E86AE /* TimerListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44D897F27457A43006E86AE /* TimerListController.swift */; };
 		F44D899327457A47006E86AE /* EKtimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44D899227457A47006E86AE /* EKtimerTests.swift */; };
 		F44D899D27457A47006E86AE /* EKtimerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44D899C27457A47006E86AE /* EKtimerUITests.swift */; };
 		F44D899F27457A47006E86AE /* EKtimerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44D899E27457A47006E86AE /* EKtimerUITestsLaunchTests.swift */; };
+		F44D89E927457C84006E86AE /* Icon_80x80.png in Resources */ = {isa = PBXBuildFile; fileRef = F44D89DB27457C84006E86AE /* Icon_80x80.png */; };
+		F44D89EA27457C84006E86AE /* Icon_20x20.png in Resources */ = {isa = PBXBuildFile; fileRef = F44D89DC27457C84006E86AE /* Icon_20x20.png */; };
+		F44D89EB27457C84006E86AE /* Icon_167x167.png in Resources */ = {isa = PBXBuildFile; fileRef = F44D89DD27457C84006E86AE /* Icon_167x167.png */; };
+		F44D89EC27457C84006E86AE /* Icon_76x76.png in Resources */ = {isa = PBXBuildFile; fileRef = F44D89DE27457C84006E86AE /* Icon_76x76.png */; };
+		F44D89ED27457C84006E86AE /* Icon_29x29.png in Resources */ = {isa = PBXBuildFile; fileRef = F44D89DF27457C84006E86AE /* Icon_29x29.png */; };
+		F44D89EE27457C84006E86AE /* Icon_1024x1024.png in Resources */ = {isa = PBXBuildFile; fileRef = F44D89E027457C84006E86AE /* Icon_1024x1024.png */; };
+		F44D89EF27457C84006E86AE /* Icon_58x58.png in Resources */ = {isa = PBXBuildFile; fileRef = F44D89E127457C84006E86AE /* Icon_58x58.png */; };
+		F44D89F027457C84006E86AE /* Icon_60x60.png in Resources */ = {isa = PBXBuildFile; fileRef = F44D89E227457C84006E86AE /* Icon_60x60.png */; };
+		F44D89F127457C84006E86AE /* Icon.svg in Resources */ = {isa = PBXBuildFile; fileRef = F44D89E327457C84006E86AE /* Icon.svg */; };
+		F44D89F227457C84006E86AE /* Icon_152x152.png in Resources */ = {isa = PBXBuildFile; fileRef = F44D89E427457C84006E86AE /* Icon_152x152.png */; };
+		F44D89F327457C84006E86AE /* Icon_180x180.png in Resources */ = {isa = PBXBuildFile; fileRef = F44D89E527457C84006E86AE /* Icon_180x180.png */; };
+		F44D89F427457C84006E86AE /* Icon_87x87.png in Resources */ = {isa = PBXBuildFile; fileRef = F44D89E627457C84006E86AE /* Icon_87x87.png */; };
+		F44D89F527457C84006E86AE /* Icon_120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = F44D89E727457C84006E86AE /* Icon_120x120.png */; };
+		F44D89F627457C84006E86AE /* Icon_40x40.png in Resources */ = {isa = PBXBuildFile; fileRef = F44D89E827457C84006E86AE /* Icon_40x40.png */; };
+		F4B49B4827468892003BFD1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4B49B4727468892003BFD1B /* Assets.xcassets */; };
+		F4B49B4A2746C79D003BFD1B /* Westerstrand.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B49B492746C79D003BFD1B /* Westerstrand.swift */; };
+		F4B49B4C27478A93003BFD1B /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F4B49B4B27478A93003BFD1B /* Settings.bundle */; };
+		F4B49B502747C080003BFD1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4B49B4F2747C080003BFD1B /* Main.storyboard */; };
+		F4B49B902747DB19003BFD1B /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4B49B8F2747DB19003BFD1B /* Launch Screen.storyboard */; };
+		F4B49B9227481DF2003BFD1B /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B49B9127481DF2003BFD1B /* AppData.swift */; };
+		F4B49B94274BDD9F003BFD1B /* TimerEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B49B93274BDD9F003BFD1B /* TimerEdit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,17 +55,34 @@
 /* Begin PBXFileReference section */
 		F44D897827457A43006E86AE /* EKtimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EKtimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F44D897B27457A43006E86AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F44D897D27457A43006E86AE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F44D897F27457A43006E86AE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F44D898227457A43006E86AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F44D898427457A47006E86AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F44D898727457A47006E86AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F44D897F27457A43006E86AE /* TimerListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerListController.swift; sourceTree = "<group>"; };
 		F44D898927457A47006E86AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F44D898E27457A47006E86AE /* EKtimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EKtimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F44D899227457A47006E86AE /* EKtimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EKtimerTests.swift; sourceTree = "<group>"; };
 		F44D899827457A47006E86AE /* EKtimerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EKtimerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F44D899C27457A47006E86AE /* EKtimerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EKtimerUITests.swift; sourceTree = "<group>"; };
 		F44D899E27457A47006E86AE /* EKtimerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EKtimerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F44D89DB27457C84006E86AE /* Icon_80x80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_80x80.png; sourceTree = "<group>"; };
+		F44D89DC27457C84006E86AE /* Icon_20x20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_20x20.png; sourceTree = "<group>"; };
+		F44D89DD27457C84006E86AE /* Icon_167x167.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_167x167.png; sourceTree = "<group>"; };
+		F44D89DE27457C84006E86AE /* Icon_76x76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_76x76.png; sourceTree = "<group>"; };
+		F44D89DF27457C84006E86AE /* Icon_29x29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_29x29.png; sourceTree = "<group>"; };
+		F44D89E027457C84006E86AE /* Icon_1024x1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_1024x1024.png; sourceTree = "<group>"; };
+		F44D89E127457C84006E86AE /* Icon_58x58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_58x58.png; sourceTree = "<group>"; };
+		F44D89E227457C84006E86AE /* Icon_60x60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_60x60.png; sourceTree = "<group>"; };
+		F44D89E327457C84006E86AE /* Icon.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Icon.svg; sourceTree = "<group>"; };
+		F44D89E427457C84006E86AE /* Icon_152x152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_152x152.png; sourceTree = "<group>"; };
+		F44D89E527457C84006E86AE /* Icon_180x180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_180x180.png; sourceTree = "<group>"; };
+		F44D89E627457C84006E86AE /* Icon_87x87.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_87x87.png; sourceTree = "<group>"; };
+		F44D89E727457C84006E86AE /* Icon_120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_120x120.png; sourceTree = "<group>"; };
+		F44D89E827457C84006E86AE /* Icon_40x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_40x40.png; sourceTree = "<group>"; };
+		F4B49B4727468892003BFD1B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F4B49B492746C79D003BFD1B /* Westerstrand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Westerstrand.swift; sourceTree = "<group>"; };
+		F4B49B4B27478A93003BFD1B /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		F4B49B4F2747C080003BFD1B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		F4B49B8F2747DB19003BFD1B /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		F4B49B9127481DF2003BFD1B /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
+		F4B49B93274BDD9F003BFD1B /* TimerEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerEdit.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +133,17 @@
 		F44D897A27457A43006E86AE /* EKtimer */ = {
 			isa = PBXGroup;
 			children = (
+				F4B49B4727468892003BFD1B /* Assets.xcassets */,
+				F44D89DA27457C84006E86AE /* Icons */,
 				F44D897B27457A43006E86AE /* AppDelegate.swift */,
-				F44D897D27457A43006E86AE /* SceneDelegate.swift */,
-				F44D897F27457A43006E86AE /* ViewController.swift */,
-				F44D898127457A43006E86AE /* Main.storyboard */,
-				F44D898427457A47006E86AE /* Assets.xcassets */,
-				F44D898627457A47006E86AE /* LaunchScreen.storyboard */,
+				F44D897F27457A43006E86AE /* TimerListController.swift */,
+				F4B49B4F2747C080003BFD1B /* Main.storyboard */,
+				F4B49B492746C79D003BFD1B /* Westerstrand.swift */,
 				F44D898927457A47006E86AE /* Info.plist */,
+				F4B49B4B27478A93003BFD1B /* Settings.bundle */,
+				F4B49B8F2747DB19003BFD1B /* Launch Screen.storyboard */,
+				F4B49B9127481DF2003BFD1B /* AppData.swift */,
+				F4B49B93274BDD9F003BFD1B /* TimerEdit.swift */,
 			);
 			path = EKtimer;
 			sourceTree = "<group>";
@@ -125,6 +163,27 @@
 				F44D899E27457A47006E86AE /* EKtimerUITestsLaunchTests.swift */,
 			);
 			path = EKtimerUITests;
+			sourceTree = "<group>";
+		};
+		F44D89DA27457C84006E86AE /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				F44D89DB27457C84006E86AE /* Icon_80x80.png */,
+				F44D89DC27457C84006E86AE /* Icon_20x20.png */,
+				F44D89DD27457C84006E86AE /* Icon_167x167.png */,
+				F44D89DE27457C84006E86AE /* Icon_76x76.png */,
+				F44D89DF27457C84006E86AE /* Icon_29x29.png */,
+				F44D89E027457C84006E86AE /* Icon_1024x1024.png */,
+				F44D89E127457C84006E86AE /* Icon_58x58.png */,
+				F44D89E227457C84006E86AE /* Icon_60x60.png */,
+				F44D89E327457C84006E86AE /* Icon.svg */,
+				F44D89E427457C84006E86AE /* Icon_152x152.png */,
+				F44D89E527457C84006E86AE /* Icon_180x180.png */,
+				F44D89E627457C84006E86AE /* Icon_87x87.png */,
+				F44D89E727457C84006E86AE /* Icon_120x120.png */,
+				F44D89E827457C84006E86AE /* Icon_40x40.png */,
+			);
+			path = Icons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,9 +290,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F44D898827457A47006E86AE /* LaunchScreen.storyboard in Resources */,
-				F44D898527457A47006E86AE /* Assets.xcassets in Resources */,
-				F44D898327457A43006E86AE /* Main.storyboard in Resources */,
+				F44D89EA27457C84006E86AE /* Icon_20x20.png in Resources */,
+				F44D89F327457C84006E86AE /* Icon_180x180.png in Resources */,
+				F44D89EC27457C84006E86AE /* Icon_76x76.png in Resources */,
+				F44D89F027457C84006E86AE /* Icon_60x60.png in Resources */,
+				F44D89EB27457C84006E86AE /* Icon_167x167.png in Resources */,
+				F44D89EF27457C84006E86AE /* Icon_58x58.png in Resources */,
+				F4B49B4827468892003BFD1B /* Assets.xcassets in Resources */,
+				F44D89EE27457C84006E86AE /* Icon_1024x1024.png in Resources */,
+				F44D89E927457C84006E86AE /* Icon_80x80.png in Resources */,
+				F44D89F527457C84006E86AE /* Icon_120x120.png in Resources */,
+				F44D89ED27457C84006E86AE /* Icon_29x29.png in Resources */,
+				F44D89F127457C84006E86AE /* Icon.svg in Resources */,
+				F4B49B902747DB19003BFD1B /* Launch Screen.storyboard in Resources */,
+				F44D89F627457C84006E86AE /* Icon_40x40.png in Resources */,
+				F44D89F227457C84006E86AE /* Icon_152x152.png in Resources */,
+				F4B49B502747C080003BFD1B /* Main.storyboard in Resources */,
+				F4B49B4C27478A93003BFD1B /* Settings.bundle in Resources */,
+				F44D89F427457C84006E86AE /* Icon_87x87.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,9 +332,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F44D898027457A43006E86AE /* ViewController.swift in Sources */,
+				F4B49B4A2746C79D003BFD1B /* Westerstrand.swift in Sources */,
+				F44D898027457A43006E86AE /* TimerListController.swift in Sources */,
 				F44D897C27457A43006E86AE /* AppDelegate.swift in Sources */,
-				F44D897E27457A43006E86AE /* SceneDelegate.swift in Sources */,
+				F4B49B9227481DF2003BFD1B /* AppData.swift in Sources */,
+				F4B49B94274BDD9F003BFD1B /* TimerEdit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,25 +371,6 @@
 			targetProxy = F44D899927457A47006E86AE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		F44D898127457A43006E86AE /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F44D898227457A43006E86AE /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		F44D898627457A47006E86AE /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F44D898727457A47006E86AE /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		F44D89A027457A47006E86AE /* Debug */ = {
@@ -443,10 +500,11 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EKtimer/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -471,10 +529,11 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EKtimer/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -1,24 +1,143 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="s65-f0-3ej">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Timer List-->
+        <scene sceneID="8xV-UU-Bhw">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <tableViewController title="Timer List" id="1n8-jn-U8B" customClass="ViewController" customModule="EKtimer" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="300" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="K6h-8a-q1k">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="timerCellStyle" rowHeight="300" id="M7F-uf-JoC" userLabel="Timer Cell" customClass="TimerCell" customModule="EKtimer" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="300"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="M7F-uf-JoC" id="ty0-eu-XN4">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="45" id="Hhg-M9-fNl">
+                                            <rect key="frame" x="20" y="129" width="374" height="42"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="10" verticalHuggingPriority="251" horizontalCompressionResistancePriority="400" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OKq-ud-5Xs">
+                                                    <rect key="frame" x="0.0" y="0.0" width="44" height="42"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CfH-zK-BRc">
+                                                    <rect key="frame" x="89" y="0.0" width="70" height="42"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="70" id="rks-dP-Cui"/>
+                                                    </constraints>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" title="Start">
+                                                        <imageReference key="image" image="play.fill" catalog="system" symbolScale="large"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="startPressed:" destination="M7F-uf-JoC" eventType="primaryActionTriggered" id="ybl-ZV-qUk"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G5F-bs-yeE">
+                                                    <rect key="frame" x="204" y="0.0" width="55" height="42"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="dnI-ad-ml1"/>
+                                                    </constraints>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" title="Stop">
+                                                        <imageReference key="image" image="pause.fill" catalog="system" symbolScale="large"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="stopPressed:" destination="M7F-uf-JoC" eventType="primaryActionTriggered" id="0te-A1-tDx"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4M9-nc-uxX">
+                                                    <rect key="frame" x="304" y="0.0" width="70" height="42"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="70" id="quO-gd-dQU"/>
+                                                    </constraints>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" title="Reset">
+                                                        <imageReference key="image" image="backward.end.fill" catalog="system" symbolScale="large"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="resetPressed:" destination="M7F-uf-JoC" eventType="touchDown" id="U5Q-7B-QPj"/>
+                                                        <action selector="resetReleased:" destination="M7F-uf-JoC" eventType="touchUpOutside" id="EOG-4z-qbn"/>
+                                                        <action selector="resetReleased:" destination="M7F-uf-JoC" eventType="touchUpInside" id="a5E-Z8-c7J"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="4M9-nc-uxX" firstAttribute="centerY" secondItem="Hhg-M9-fNl" secondAttribute="centerY" id="6HA-XF-UHZ"/>
+                                                <constraint firstItem="OKq-ud-5Xs" firstAttribute="centerY" secondItem="Hhg-M9-fNl" secondAttribute="centerY" id="Tmv-GY-D2w"/>
+                                                <constraint firstItem="CfH-zK-BRc" firstAttribute="centerY" secondItem="Hhg-M9-fNl" secondAttribute="centerY" id="nvN-gv-cTZ"/>
+                                            </constraints>
+                                        </stackView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="resetButton" destination="4M9-nc-uxX" id="1kT-fN-iey"/>
+                                    <outlet property="startButton" destination="CfH-zK-BRc" id="YIp-hX-nq5"/>
+                                    <outlet property="stopButton" destination="G5F-bs-yeE" id="SWx-gW-ltk"/>
+                                    <outlet property="timeText" destination="OKq-ud-5Xs" id="xcA-YC-u41"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="1n8-jn-U8B" id="lnF-Qt-xTs"/>
+                            <outlet property="delegate" destination="1n8-jn-U8B" id="Mki-97-4Oa"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Timer List" id="lDN-56-W2Y">
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="SmO-4d-VPk"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vga-OH-4Ue" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationBar contentMode="scaleToFill" id="bYt-9b-eR5">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <items>
+                        <navigationItem title="Title" id="2tk-Ro-ksy"/>
+                    </items>
+                </navigationBar>
             </objects>
+            <point key="canvasLocation" x="2143.4782608695655" y="259.82142857142856"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="yK4-jP-DIX">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="s65-f0-3ej" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uh6-Bg-gI0">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="1n8-jn-U8B" kind="relationship" relationship="rootViewController" id="0ps-5j-qWn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DJv-H7-AOl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1234.7826086956522" y="259.82142857142856"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="backward.end.fill" catalog="system" width="128" height="102"/>
+        <image name="pause.fill" catalog="system" width="116" height="128"/>
+        <image name="play.fill" catalog="system" width="116" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
