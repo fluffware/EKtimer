@@ -105,12 +105,10 @@ class TimerCell: UITableViewCell
 }
 
 class ViewController: UITableViewController {
-    let appData: AppData!
     weak var timer: Timer? = nil;
     
     required init?(coder: NSCoder)
         {
-            appData = AppData.getAppdata()
             super.init(coder: coder)
             
         }
@@ -146,17 +144,19 @@ class ViewController: UITableViewController {
             cell.updateCell()
         }
     }
+    
+   
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1;
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return appData?.timers.count ?? 0;
+        return AppData.getAppdata().timers.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "timerCellStyle", for: indexPath) as! TimerCell
-        cell.context = appData?.timers[indexPath.row]
+        cell.context = AppData.getAppdata().timers[indexPath.row]
         cell.timer_index = indexPath.row
         cell.editButton.tag = indexPath.row;
       
@@ -168,13 +168,13 @@ class ViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         switch editingStyle {
         case .delete:
-            appData?.timers.remove(at: indexPath.row)
+            AppData.getAppdata().timers.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
             do {
             try AppData.save_app_data()
             } catch {}
         case .insert:
-            appData.timers.insert(TimerState(), at: indexPath.row)
+            AppData.getAppdata().timers.insert(TimerState(), at: indexPath.row)
             do {
             try AppData.save_app_data()
             } catch {}
@@ -184,10 +184,11 @@ class ViewController: UITableViewController {
     }
     
     @IBAction func addTimer(_ sender: UIBarButtonItem) {
-        if (appData != nil) {
-            appData!.timers.append(TimerState())
-            tableView.insertRows(at: [IndexPath(row: appData!.timers.count - 1, section: 0)], with: UITableView.RowAnimation.none)
-        }
+        
+        let app_data = AppData.getAppdata()
+        app_data.timers.append(TimerState())
+        tableView.insertRows(at: [IndexPath(row: app_data.timers.count - 1, section: 0)], with: UITableView.RowAnimation.none)
+        
         
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

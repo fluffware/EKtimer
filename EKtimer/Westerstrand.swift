@@ -10,11 +10,17 @@ import Network
 
 class WesterstrandConnection
 {
-    var connection: NWConnection! = nil
+    var connection: NWConnection? = nil
     var end_point:NWEndpoint;
     var poll_timer: Timer? = nil
+    var restart_timer: Timer? = nil
+    var packet_delay: Timer? = nil
+    
+    var intensity: UInt8 = 5
+    var signal_time: UInt8 = 3
     init(to host: String)
     {
+        print("WesterstrandConnection")
         end_point = NWEndpoint.hostPort(host: NWEndpoint.Host.name(host, nil), port: NWEndpoint.Port(rawValue: 1080)!)
         setupConnection()
     }
@@ -23,27 +29,31 @@ class WesterstrandConnection
     {
         connection = NWConnection(to: end_point, using: NWParameters.tcp)
       
-        connection.stateUpdateHandler = stateChanged
-        connection.start(queue: DispatchQueue.main)
-        connection.receive(minimumIncompleteLength: 1, maximumLength: 1024, completion: receiveData)
+        connection!.stateUpdateHandler = stateChanged
+        connection!.start(queue: DispatchQueue.main)
+        connection!.receive(minimumIncompleteLength: 1, maximumLength: 1024, completion: receiveData)
     }
     
-    func delayedRestart(_:Timer)
+    private func delayedRestart(_:Timer)
     {
-        switch connection.state {
-        case .waiting(_):
-            connection.restart()
-        default:
-          setupConnection()
+        if let connection = connection {
+            print("delayedRestart \(connection.state)")
+            switch connection.state {
+            case .waiting(_):
+                connection.restart()
+            case  .ready, .cancelled:
+                setupConnection()
+            default:
+                break
+            }
         }
-        connection.restart()
     }
     
-    func pollTime(_: Timer)
+    private func pollTime(_: Timer)
     {
             send(toChannel: 0x3f, withData: [])
     }
-    func stateChanged(state: NWConnection.State)
+    private func stateChanged(state: NWConnection.State)
     {
         print("Connection state changed; \(state)")
         if let timer = poll_timer {
@@ -51,8 +61,9 @@ class WesterstrandConnection
             poll_timer = nil
         }
         switch state {
-            case .waiting(_), .cancelled:
-            Timer.scheduledTimer(withTimeInterval: 5, repeats: false, block: delayedRestart)
+        case .waiting(_), .cancelled:
+            restart_timer?.invalidate()
+            restart_timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: false, block: delayedRestart)
         case .ready:
             poll_timer = Timer.scheduledTimer(withTimeInterval: 1.3, repeats: true, block: pollTime)
         default:
@@ -60,27 +71,64 @@ class WesterstrandConnection
         }
     }
     
-    func receiveData(_ content: Data?, _ contentContext: NWConnection.ContentContext?, _ isComplete: Bool, _ error: NWError?)
+    private func receiveData(_ content: Data?, _ contentContext: NWConnection.ContentContext?, _ isComplete: Bool, _ error: NWError?)
     {
         if let error = error {
             print("Error: \(error)")
-            connection.cancel();
+            connection?.cancel();
             return;
         }
         if let content = content {
             print("Receieved: \(content)")
             
         }
-        connection.receive(minimumIncompleteLength: 1, maximumLength: 1024, completion: receiveData)
+        connection?.receive(minimumIncompleteLength: 1, maximumLength: 1024, completion: receiveData)
+    }
+    
+    func close()
+    {
+        
+        connection?.stateUpdateHandler = nil
+        connection?.cancel()
+        connection = nil
+        if let timer = poll_timer {
+            timer.invalidate()
+            poll_timer = nil
+        }
+    }
+    
+    private var pending: [Data] = []
+    
+    private func sendPending()
+    {
+        if packet_delay != nil {
+            return
+        }
+        guard let data = pending.popLast() else {
+            return
+        }
+       
+        //print("Send: \(data) \(connection)")
+        
+        connection?.send(content: data, completion: NWConnection.SendCompletion.contentProcessed({(error) -> Void in return}))
+        
+        // Wait a while before sending next packet, if any
+        packet_delay = Timer.scheduledTimer(withTimeInterval: 0.02, repeats: false, block: {
+            _ in
+            //print("Delay end")
+            self.packet_delay = nil
+            self.sendPending()
+        })
     }
     
     private func send(toChannel: UInt8,withData data: [UInt8])
     {
-        var tx_data = Data([2,0,UInt8(data.count+7), 0x43, 0x48,
+         var tx_data = Data([2,0,UInt8(data.count+4), 0x43, 0x48,
                             toChannel])
         tx_data.append(contentsOf: data)
         tx_data.append(contentsOf: [3, 0x20])
-        connection?.send(content: tx_data, completion: NWConnection.SendCompletion.contentProcessed({(error) -> Void in return}))
+        pending.insert(tx_data, at: 0)
+        sendPending()
     }
     func start()
     {
@@ -91,8 +139,32 @@ class WesterstrandConnection
     {
         send(toChannel: 0x33, withData: [0x30])
     }
-    func reset()
+    func reset(to preset:TimeInterval)
     {
+        stop()
+        set(time: preset)
+        let function = preset > 0 ? Function.count_down:Function.count_up
+        set(function: function)
         send(toChannel: 0x33, withData: [0x32])
     }
+    
+    func set(time interval: TimeInterval)
+    {
+        let v = Int(interval * 1000)
+        let v_str = String(v)
+        
+        let data = v_str.utf8 + [0]
+        send(toChannel: 0x31, withData: data)
+    }
+    enum Function:UInt8 {
+        case count_up = 0x31
+        case count_down = 0x32
+        case count_down_auto_reset = 0x33
+    }
+    func set(function: Function)
+    {
+        let data = [function.rawValue, signal_time, intensity]
+        send(toChannel: 0x32, withData: data)
+    }
+    
 }

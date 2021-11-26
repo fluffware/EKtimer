@@ -11,31 +11,20 @@ enum TimerCountState
     case running(TimeInterval)
     case stopped(TimeInterval)
 }
-class Device: Codable
+class Device
 {
     var name: String = "Device"
-    var ipAddr: String = "127.0.0.1"
+    var host: String = "127.0.0.1"
     var connection: WesterstrandConnection? = nil
     weak var connectedTimer: TimerState? = nil
     
-    required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: Keys.self)
-        name = try container.decode(String.self, forKey: .name)
-        ipAddr = try container.decode(String.self, forKey: .ip_addr)
-        
-    }
+    
     
     init()
     {
         
     }
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: Keys.self)
-        try container.encode(name, forKey: .name)
-        try container.encode(ipAddr, forKey: .ip_addr)
-        let connected = connectedTimer?.name
-        try container.encode(connected, forKey: .connected)
-    }
+    
     
     func start()
     {
@@ -47,9 +36,14 @@ class Device: Codable
         connection?.stop()
     }
     
-    func reset()
+    func reset(to preset: TimeInterval)
     {
-        connection?.reset()
+        connection?.reset(to: preset)
+    }
+    
+    func close()
+    {
+        connection?.close()
     }
 }
 
@@ -65,12 +59,22 @@ enum Keys: String, CodingKey
     case preset
 }
 
+class WeakDevice
+{
+    weak var device: Device? = nil
+    
+    init(_ device: Device)
+    {
+        self.device = device
+    }
+}
+
 class TimerState: Codable
 {
     var count: TimerCountState = TimerCountState.stopped(0.0)
     var preset: TimeInterval = 0
     var name: String = "Timer"
-    var devices: [Device] = []
+    var devices: [WeakDevice] = []
     
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: Keys.self)
@@ -99,7 +103,7 @@ class TimerState: Codable
             break
         }
         for d in devices {
-            d.start()
+            d.device?.start()
         }
     }
     
@@ -113,15 +117,15 @@ class TimerState: Codable
             break
         }
         for d in devices {
-            d.stop()
+            d.device?.stop()
         }
     }
-    ß
+    
     func reset()
     {
         count = TimerCountState.stopped(-abs(preset))
         for d in devices {
-            d.reset()
+            d.device?.reset(to: preset)
         }
     }
 }
@@ -150,22 +154,59 @@ class AppData :Codable
         return appData!
     }
     
+    class func destroy()
+    {
+        if let app_data = AppData.appData {
+            for d in app_data.devices {
+                d.close()
+            }
+        }
+        AppData.appData = nil
+    }
     init()
     {
     
     }
+    
+    func decode_devices(from devices_container: inout UnkeyedDecodingContainer) throws
+    {
+        while !devices_container.isAtEnd {
+            let container = try devices_container.nestedContainer(keyedBy: Keys.self)
+            let device = Device()
+            device.name = try container.decode(String.self, forKey: Keys.name)
+            device.host = try container.decode(String.self, forKey: Keys.ip_addr)
+            device.connection = WesterstrandConnection(to: device.host)
+            let timer_index = try container.decode(Int.self, forKey: .connected)
+            device.connectedTimer = timers[timer_index]
+            devices.append(device)
+            device.connectedTimer?.devices.append(WeakDevice(device))
+        }
+    }
+
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: Keys.self)
         timers = try container.decode([TimerState].self, forKey: .timers)
-        devices = try container.decode([Device].self, forKey: .devices)
-       
+        var devices_container = try container.nestedUnkeyedContainer(forKey: .devices)
+        try decode_devices(from: &devices_container)
     }
     
+    func encode_devices(to devices_container: inout UnkeyedEncodingContainer) throws {
+        for device in devices {
+            var container = devices_container.nestedContainer(keyedBy: Keys.self)
+            try container.encode(device.name, forKey: .name)
+            try container.encode(device.host, forKey: .ip_addr)
+            
+            let timer_index = getTimerIndex(forDevice: device)
+            try container.encode(timer_index, forKey: .connected)
+        
+        }
+        
+    }
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: Keys.self)
         try container.encode(timers, forKey: .timers)
-        try container.encode(devices, forKey: .devices)
-        
+        var devices_container = container.nestedUnkeyedContainer(forKey: .devices)
+        try encode_devices(to: &devices_container)
     }
     
     class func save_app_data() throws
@@ -185,4 +226,13 @@ class AppData :Codable
          
     }
     
+    func getTimerIndex(forDevice device: Device) -> Int?
+    {
+        for (ti, timer) in timers.enumerated() {
+            if device.connectedTimer === timer {
+                return ti
+            }
+        }
+        return nil
+    }
 }

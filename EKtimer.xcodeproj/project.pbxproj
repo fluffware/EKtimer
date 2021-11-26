@@ -33,6 +33,8 @@
 		F4B49B902747DB19003BFD1B /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4B49B8F2747DB19003BFD1B /* Launch Screen.storyboard */; };
 		F4B49B9227481DF2003BFD1B /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B49B9127481DF2003BFD1B /* AppData.swift */; };
 		F4B49B94274BDD9F003BFD1B /* TimerEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B49B93274BDD9F003BFD1B /* TimerEdit.swift */; };
+		F4B49B96274E41E0003BFD1B /* DeviceListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B49B95274E41E0003BFD1B /* DeviceListController.swift */; };
+		F4B49B98274E7DD6003BFD1B /* DeviceEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B49B97274E7DD6003BFD1B /* DeviceEditController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +85,8 @@
 		F4B49B8F2747DB19003BFD1B /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		F4B49B9127481DF2003BFD1B /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		F4B49B93274BDD9F003BFD1B /* TimerEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerEdit.swift; sourceTree = "<group>"; };
+		F4B49B95274E41E0003BFD1B /* DeviceListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceListController.swift; sourceTree = "<group>"; };
+		F4B49B97274E7DD6003BFD1B /* DeviceEditController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceEditController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +148,8 @@
 				F4B49B8F2747DB19003BFD1B /* Launch Screen.storyboard */,
 				F4B49B9127481DF2003BFD1B /* AppData.swift */,
 				F4B49B93274BDD9F003BFD1B /* TimerEdit.swift */,
+				F4B49B95274E41E0003BFD1B /* DeviceListController.swift */,
+				F4B49B97274E7DD6003BFD1B /* DeviceEditController.swift */,
 			);
 			path = EKtimer;
 			sourceTree = "<group>";
@@ -333,6 +339,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4B49B4A2746C79D003BFD1B /* Westerstrand.swift in Sources */,
+				F4B49B98274E7DD6003BFD1B /* DeviceEditController.swift in Sources */,
+				F4B49B96274E41E0003BFD1B /* DeviceListController.swift in Sources */,
 				F44D898027457A43006E86AE /* TimerListController.swift in Sources */,
 				F44D897C27457A43006E86AE /* AppDelegate.swift in Sources */,
 				F4B49B9227481DF2003BFD1B /* AppData.swift in Sources */,
