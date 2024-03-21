@@ -73,36 +73,24 @@ class TimerEditController: UIViewController
         return TimeInterval(preset)
     }
     
-    private func saveTimer() -> AppData
+    private func saveTimer() -> TimerState
     {
-        let app_data = AppData.getAppdata()
-        print("Updating timer \(timer_index)")
-        app_data.timers[timer_index].preset = get_preset_time()
-        app_data.timers[timer_index].name = nameField.text ?? ""
-        do {
-            try AppData.save_app_data()
-        } catch {
-            let alert = UIAlertController(title: "Failed to save timer settings", message: "Changes made to timer may be lost", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default))
-            self.present(alert, animated: true)
-        }
         
-        return app_data
+        return AppData.getTimer()
     }
    
     @IBAction func resetPressed(_ sender: UIButton) {
-        saveTimer().timers[timer_index].reset()
+        saveTimer().reset()
         self.navigationController?.popViewController(animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         print("Editor will apear")
         super.viewWillAppear(animated)
-        let app_data = AppData.getAppdata()
-        let timer = app_data.timers[timer_index]
-        nameField.text = timer.name
+        let timer = AppData.getTimer()
+        nameField.text = ""
         
-        let seconds = Int(abs(timer.preset))
+        let seconds = Int(abs(timer.preset()))
         let minutes = seconds / 60
         let hours = minutes / 60
         
