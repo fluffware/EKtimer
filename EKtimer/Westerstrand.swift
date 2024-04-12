@@ -11,7 +11,7 @@ import Network
 class WesterstrandConnection
 {
     var connection: NWConnection? = nil
-    var end_point:NWEndpoint;
+    var end_point:NWEndpoint? = nil;
     var poll_timer: Timer? = nil
     var restart_timer: Timer? = nil
     var packet_delay: Timer? = nil
@@ -21,13 +21,21 @@ class WesterstrandConnection
     init(to host: String)
     {
         print("WesterstrandConnection")
-        end_point = NWEndpoint.hostPort(host: NWEndpoint.Host.name(host, nil), port: NWEndpoint.Port(rawValue: 1080)!)
+    }
+    
+    func connect(to host: String) {
+        let new_end_point = NWEndpoint.hostPort(host: NWEndpoint.Host.name(host, nil), port: NWEndpoint.Port(rawValue: 1080)!)
+        if new_end_point == end_point {
+            return
+        }
+        end_point = new_end_point
         setupConnection()
+
     }
     
     func setupConnection()
     {
-        connection = NWConnection(to: end_point, using: NWParameters.tcp)
+        connection = NWConnection(to: end_point!, using: NWParameters.tcp)
       
         connection!.stateUpdateHandler = stateChanged
         connection!.start(queue: DispatchQueue.main)

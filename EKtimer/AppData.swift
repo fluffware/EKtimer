@@ -85,20 +85,24 @@ class WeakDevice
 class TimerStep{
     var name: String
     var duration: TimeInterval
-    var sound: String
-    required init(name: String, duration: TimeInterval, sound: String = "")
+    var sound: Int
+    var repeats: UInt
+    required init(name: String, duration: TimeInterval, 
+                  sound: Int = 0, repeats: UInt = 1)
     {
         self.name = name
         self.duration = duration
-        self.sound = ""
+        self.sound = sound
+        self.repeats = repeats
     }
     required init(from: [String : Any]) {
         name = from["Name"] as? String ?? "No name"
         duration = from["Duration"] as? Double ?? 1.0
-        sound = from["Sound"] as? String ?? ""
+        sound = from["Sound"] as? Int ?? 0
+        repeats = from["Repeats"] as? UInt ?? 1
     }
     func toDict() -> [String : Any]{
-        let dict: [String: Any] = ["Name": name, "Duration": duration, "Sound": ""]
+        let dict: [String: Any] = ["Name": name, "Duration": duration, "Sound": sound, "Repeats": repeats]
         return dict
     }
 }
@@ -107,10 +111,13 @@ class TimerSequence
     var name: String
     var countUp: Bool = true
     var steps: [TimerStep] = []
+  
     
-    required init(name: String)
+    required init(name: String, countUp: Bool = true,  steps: [TimerStep] = [])
     {
         self.name = name
+        self.countUp = countUp
+        self.steps = steps
     }
     
     required init(from: [String : Any]) {
@@ -119,8 +126,11 @@ class TimerSequence
         steps = (from["Steps"] as? [[String: Any]] ?? []).map({TimerStep(from: $0)})
     }
     
+   
+    
     func toDict() ->[String : Any]{
         let dict: [String: Any] = [
+            "Name": name,
             "CountUp": countUp,
             "Steps": steps.map({$0.toDict()})
         ]
@@ -132,7 +142,9 @@ class TimerState
 {
     var count: TimerCountState = TimerCountState.stopped(0.0)
     weak var sequence: TimerSequence? = nil
+    var sequence_index = 0;
     var devices: [WeakDevice] = []
+    
     
     required init(from: [String: Any]) {
         let state_name: String? = from["State"] as? String
@@ -149,7 +161,6 @@ class TimerState
                 count = TimerCountState.stopped(state_count)
             }
         }
-       
     }
     
     
@@ -159,9 +170,15 @@ class TimerState
     
     func preset() -> TimeInterval {
         if let sequence = sequence {
-            return sequence.steps.reduce(0.0, {$0+$1.duration})
+            if !sequence.countUp {
+                return sequence.steps.reduce(0.0, {$0+$1.duration})
+            }
         }
         return 0.0
+    }
+    
+    func countUp() -> Bool {
+        return sequence?.countUp ?? true
     }
     
     func start()
@@ -194,7 +211,7 @@ class TimerState
     
     func reset()
     {
-        count = TimerCountState.stopped(-abs(preset()))
+        count = TimerCountState.stopped(0.0)
         for d in devices {
             d.device?.reset(to: preset())
         }
@@ -204,12 +221,21 @@ class TimerState
 
 class AppData
 {
+   
     static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
     static let TimersURL = DocumentsDirectory.appendingPathComponent("timers")
     
-    private static var sequences: [String: TimerSequence] = [:]
+    private static var sequences: [TimerSequence]? = nil
+    private static let initial_sequencies = [
+        TimerSequence(name: String(localized: "Count up"), countUp: true,
+                      steps: []),
+        TimerSequence(name: String(localized: "Count down"), countUp: false,
+                      steps:[TimerStep(name: String(localized: "Duration"), duration: 60, sound:0)]),
+    ]
+    
     private static var timer: TimerState = TimerState()
     private static var devices:[Device] = []
+
     
     class func destroy()
     {
@@ -219,16 +245,37 @@ class AppData
         return AppData.devices
     }
     
-    class func getSequences() -> [String: TimerSequence] {
-        return AppData.sequences
+    class func getSequences() -> [TimerSequence] {
+        if AppData.sequences == nil {
+            AppData.sequences = initial_sequencies
+        }
+        return AppData.sequences!
+    }
+    
+    class func add(sequence: TimerSequence) {
+        AppData.sequences?.append(sequence)
+    }
+    
+    class func remove(sequence: TimerSequence) {
+        if var sequences = AppData.sequences {
+            for (i,s) in sequences.enumerated() {
+                if s === sequence {
+                    sequences.remove(at: i)
+                    break
+                }
+            }
+        }
     }
     
     class func getTimer() -> TimerState
     {
         return AppData.timer
     }
+    
     class func decode_devices(from devices_defaults: UserDefaults) throws
     {
+        AppData.devices.removeAll()
+        
         for i in 1...4 {
             let prefix = "Device"+String(i)+"_";
             let name = devices_defaults.string(forKey: prefix + "Name")
@@ -249,21 +296,24 @@ class AppData
     
     class func encode_sequences(to defaults: UserDefaults) throws
     {
-        var dict: [String: Any] = [:]
-        for (name, sequence) in AppData.sequences {
-            dict[name] = sequence.toDict()
+        var array: [Any] = []
+        
+        for sequence in AppData.getSequences() {
+            array.append(sequence.toDict())
         }
-        defaults.set(dict, forKey: "Sequencies")
+        defaults.set(array, forKey: "Sequencies")
     }
     
     class func decode_sequencies(from defaults: UserDefaults) throws
     {
-        
-        if let dict = defaults.dictionary(forKey: "Sequencies") {
-            AppData.sequences.removeAll()
-            for (name, sequence) in dict {
+        if AppData.sequences == nil {
+            AppData.sequences = initial_sequencies
+        }
+        if let array = defaults.array(forKey: "Sequencies") {
+            AppData.sequences!.removeAll()
+            for sequence in array {
                 if let sequence = sequence as? [String: Any] {
-                    AppData.sequences[name] = TimerSequence(from: sequence)
+                    AppData.sequences!.append(TimerSequence(from: sequence))
                 }
             }
         }
@@ -279,10 +329,15 @@ class AppData
     class func save_preferences() throws
     {
         try encode_sequences(to: UserDefaults.standard)
+        print("Saving preferences")
     }
     
     class func load_preferences() throws {
         try decode_devices(from: UserDefaults.standard)
-        try decode_sequencies(from: UserDefaults.standard)
+        // Since the sequenceis can only be changed from within the app, there is no reason to load the if we already have them
+        if AppData.sequences == nil {
+            try decode_sequencies(from: UserDefaults.standard)
+        }
+        print("Loading preferences")
     }
 }

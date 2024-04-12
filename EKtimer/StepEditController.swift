@@ -7,14 +7,78 @@
 
 import Foundation
 import UIKit
+
+class StepNameField: UITextField, UITextFieldDelegate
+{
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        delegate = self
+    }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.selectAll(nil)
+    }
+}
+
+class SoundButton: UIButton
+{
+    @IBOutlet weak var controller: TimerController?
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        
+    }
+    
+    private func select_action(name: String, at index: Int) -> UIAction
+    {
+        return UIAction(title: name) {_ in
+            print(name)
+            self.setTitle(name, for: UIControl.State.normal)
+            self.tag = index
+            
+        }
+    }
+    
+    func build_sound_elements() -> [UIMenuElement]
+    {
+        
+        var new_elems: [UIMenuElement] = []
+        for (i,name) in TimerSounds.getNames().enumerated() {
+            
+            new_elems.append(select_action(name: name, at: i))
+        }
+        return new_elems
+    }
+    
+    
+    override func contextMenuInteraction(_ interaction: UIContextMenuInteraction, configurationForMenuAtLocation location: CGPoint) -> UIContextMenuConfiguration? {
+        print("contextMenuInteraction")
+        
+        return UIContextMenuConfiguration.init(identifier: nil, previewProvider: nil, actionProvider: {elems in
+            UIMenu(title:"Sound", children: self.build_sound_elements())
+        })
+    }
+    
+    
+}
+
 class StepEditController: UIViewController
 {
     var time_str = "000000";
     var timer_index = 0
     var first_entry = true
     weak var step: TimerStep? = nil
+    var repeatCount:UInt = 1
+    
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var timeField: UILabel!
+    @IBOutlet weak var soundButton: UIButton!
+    @IBOutlet weak var repeatButton: UIButton!
+    
+    
+    @IBAction func setRepeats(_ action: UICommand) {
+     
+        repeatCount = UInt(action.propertyList as! String) ?? 1
+    }
     
     private func updatePresetField()
     {
@@ -54,15 +118,7 @@ class StepEditController: UIViewController
         
     }
     
-    @IBAction func presetFieldDone(_ sender: UITextField) {
-        sender.resignFirstResponder()
-    }
-    
-    
-    @IBAction func nameFieldStartEdit(_ text: UITextField) {
-        text.selectedTextRange = text.textRange(from: text.beginningOfDocument, to: text.endOfDocument)
-    }
-    
+ 
    
     private func getTime() -> TimeInterval
     {
@@ -79,7 +135,8 @@ class StepEditController: UIViewController
         if let step = step {
             step.name = nameField.text ?? ""
             step.duration = getTime()
-            
+            step.sound = soundButton.tag
+            step.repeats = repeatCount
         }
         self.navigationController?.popViewController(animated: true)
     }
@@ -90,16 +147,30 @@ class StepEditController: UIViewController
     
     
     override func viewWillAppear(_ animated: Bool) {
-        print("Step editor will apear")
+        print("Step editor will appear")
         super.viewWillAppear(animated)
         if let step = step {
             nameField.text = step.name
-            
             let time = step.duration
-            
-            timeField.text = TimeUtils.format(interval: time)
+            time_str = TimeUtils.format_edit(interval: time)
             first_entry = true
             updatePresetField()
+            soundButton.setTitle(TimerSounds.getName(step.sound), for: .normal)
+            soundButton.tag = step.sound
+            
+            repeatCount = step.repeats
+            let item = repeatButton.menu!.children.first(where: { item in
+                if let command = item as? UICommand {
+                    let count = Int(command.propertyList as! String)!
+                    return count == step.repeats
+                }
+                return false
+            })
+            print(step)
+            let command = item as? UICommand ?? repeatButton.menu!.children[0] as! UICommand
+                
+       
+            repeatButton.setTitle(command.title, for: .normal)
         }
     }
 }

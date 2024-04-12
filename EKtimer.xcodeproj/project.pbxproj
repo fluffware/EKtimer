@@ -3,12 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F40217472BB1A8E700B7D86D /* TimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40217462BB1A8E700B7D86D /* TimerController.swift */; };
+		F4378B1B2BC84D070077C65F /* ClockDevices.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4378B1A2BC84D070077C65F /* ClockDevices.swift */; };
 		F44D897C27457A43006E86AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44D897B27457A43006E86AE /* AppDelegate.swift */; };
-		F44D898027457A43006E86AE /* TimerListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44D897F27457A43006E86AE /* TimerListController.swift */; };
 		F44D899327457A47006E86AE /* EKtimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44D899227457A47006E86AE /* EKtimerTests.swift */; };
 		F44D899D27457A47006E86AE /* EKtimerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44D899C27457A47006E86AE /* EKtimerUITests.swift */; };
 		F44D899F27457A47006E86AE /* EKtimerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44D899E27457A47006E86AE /* EKtimerUITestsLaunchTests.swift */; };
@@ -26,13 +27,20 @@
 		F44D89F427457C84006E86AE /* Icon_87x87.png in Resources */ = {isa = PBXBuildFile; fileRef = F44D89E627457C84006E86AE /* Icon_87x87.png */; };
 		F44D89F527457C84006E86AE /* Icon_120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = F44D89E727457C84006E86AE /* Icon_120x120.png */; };
 		F44D89F627457C84006E86AE /* Icon_40x40.png in Resources */ = {isa = PBXBuildFile; fileRef = F44D89E827457C84006E86AE /* Icon_40x40.png */; };
+		F487A88E2BBC783B00575CFE /* AudioPlayback.swift in Sources */ = {isa = PBXBuildFile; fileRef = F487A88D2BBC783B00575CFE /* AudioPlayback.swift */; };
+		F487A8942BBD298300575CFE /* Chirp.wav in Resources */ = {isa = PBXBuildFile; fileRef = F487A8912BBD298300575CFE /* Chirp.wav */; };
+		F487A8952BBD298300575CFE /* BeepBeep.wav in Resources */ = {isa = PBXBuildFile; fileRef = F487A8922BBD298300575CFE /* BeepBeep.wav */; };
+		F487A8962BBD298300575CFE /* Buzzer.wav in Resources */ = {isa = PBXBuildFile; fileRef = F487A8932BBD298300575CFE /* Buzzer.wav */; };
+		F487A8982BC5944900575CFE /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F487A8972BC5944900575CFE /* Localizable.xcstrings */; };
+		F487A8AE2BC5B7B400575CFE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F487A8AD2BC5B7B400575CFE /* Main.storyboard */; };
+		F4B289732BB448E2002AC024 /* TimeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B289722BB448E2002AC024 /* TimeUtils.swift */; };
+		F4B289752BB6E31A002AC024 /* SequenceEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B289742BB6E31A002AC024 /* SequenceEditController.swift */; };
 		F4B49B4827468892003BFD1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4B49B4727468892003BFD1B /* Assets.xcassets */; };
 		F4B49B4A2746C79D003BFD1B /* Westerstrand.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B49B492746C79D003BFD1B /* Westerstrand.swift */; };
 		F4B49B4C27478A93003BFD1B /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F4B49B4B27478A93003BFD1B /* Settings.bundle */; };
-		F4B49B502747C080003BFD1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4B49B4F2747C080003BFD1B /* Main.storyboard */; };
 		F4B49B902747DB19003BFD1B /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4B49B8F2747DB19003BFD1B /* Launch Screen.storyboard */; };
 		F4B49B9227481DF2003BFD1B /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B49B9127481DF2003BFD1B /* AppData.swift */; };
-		F4B49B94274BDD9F003BFD1B /* TimerEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B49B93274BDD9F003BFD1B /* TimerEdit.swift */; };
+		F4B49B94274BDD9F003BFD1B /* StepEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B49B93274BDD9F003BFD1B /* StepEditController.swift */; };
 		F4B49B96274E41E0003BFD1B /* DeviceListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B49B95274E41E0003BFD1B /* DeviceListController.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,10 +62,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F40217462BB1A8E700B7D86D /* TimerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerController.swift; sourceTree = "<group>"; };
+		F4378B1A2BC84D070077C65F /* ClockDevices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockDevices.swift; sourceTree = "<group>"; };
 		F44D897827457A43006E86AE /* EKtimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EKtimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F44D897B27457A43006E86AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F44D897F27457A43006E86AE /* TimerListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerListController.swift; sourceTree = "<group>"; };
-		F44D898927457A47006E86AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F44D898E27457A47006E86AE /* EKtimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EKtimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F44D899227457A47006E86AE /* EKtimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EKtimerTests.swift; sourceTree = "<group>"; };
 		F44D899827457A47006E86AE /* EKtimerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EKtimerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,13 +85,21 @@
 		F44D89E627457C84006E86AE /* Icon_87x87.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_87x87.png; sourceTree = "<group>"; };
 		F44D89E727457C84006E86AE /* Icon_120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_120x120.png; sourceTree = "<group>"; };
 		F44D89E827457C84006E86AE /* Icon_40x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_40x40.png; sourceTree = "<group>"; };
+		F487A88D2BBC783B00575CFE /* AudioPlayback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayback.swift; sourceTree = "<group>"; };
+		F487A8912BBD298300575CFE /* Chirp.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Chirp.wav; sourceTree = "<group>"; };
+		F487A8922BBD298300575CFE /* BeepBeep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = BeepBeep.wav; sourceTree = "<group>"; };
+		F487A8932BBD298300575CFE /* Buzzer.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Buzzer.wav; sourceTree = "<group>"; };
+		F487A8972BC5944900575CFE /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		F487A8AC2BC5B7B400575CFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F487A8AF2BC5B7B400575CFE /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/Main.xcstrings; sourceTree = "<group>"; };
+		F4B289722BB448E2002AC024 /* TimeUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeUtils.swift; sourceTree = "<group>"; };
+		F4B289742BB6E31A002AC024 /* SequenceEditController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequenceEditController.swift; sourceTree = "<group>"; };
 		F4B49B4727468892003BFD1B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F4B49B492746C79D003BFD1B /* Westerstrand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Westerstrand.swift; sourceTree = "<group>"; };
 		F4B49B4B27478A93003BFD1B /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
-		F4B49B4F2747C080003BFD1B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		F4B49B8F2747DB19003BFD1B /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		F4B49B9127481DF2003BFD1B /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
-		F4B49B93274BDD9F003BFD1B /* TimerEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerEdit.swift; sourceTree = "<group>"; };
+		F4B49B93274BDD9F003BFD1B /* StepEditController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepEditController.swift; sourceTree = "<group>"; };
 		F4B49B95274E41E0003BFD1B /* DeviceListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceListController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -136,17 +152,22 @@
 			isa = PBXGroup;
 			children = (
 				F4B49B4727468892003BFD1B /* Assets.xcassets */,
+				F487A8902BBD293300575CFE /* Sounds */,
 				F44D89DA27457C84006E86AE /* Icons */,
 				F44D897B27457A43006E86AE /* AppDelegate.swift */,
-				F44D897F27457A43006E86AE /* TimerListController.swift */,
-				F4B49B4F2747C080003BFD1B /* Main.storyboard */,
-				F4B49B492746C79D003BFD1B /* Westerstrand.swift */,
-				F44D898927457A47006E86AE /* Info.plist */,
+				F487A8AD2BC5B7B400575CFE /* Main.storyboard */,
 				F4B49B4B27478A93003BFD1B /* Settings.bundle */,
 				F4B49B8F2747DB19003BFD1B /* Launch Screen.storyboard */,
+				F4B49B492746C79D003BFD1B /* Westerstrand.swift */,
+				F40217462BB1A8E700B7D86D /* TimerController.swift */,
 				F4B49B9127481DF2003BFD1B /* AppData.swift */,
-				F4B49B93274BDD9F003BFD1B /* TimerEdit.swift */,
+				F4B49B93274BDD9F003BFD1B /* StepEditController.swift */,
 				F4B49B95274E41E0003BFD1B /* DeviceListController.swift */,
+				F4B289722BB448E2002AC024 /* TimeUtils.swift */,
+				F4B289742BB6E31A002AC024 /* SequenceEditController.swift */,
+				F487A88D2BBC783B00575CFE /* AudioPlayback.swift */,
+				F487A8972BC5944900575CFE /* Localizable.xcstrings */,
+				F4378B1A2BC84D070077C65F /* ClockDevices.swift */,
 			);
 			path = EKtimer;
 			sourceTree = "<group>";
@@ -187,6 +208,16 @@
 				F44D89E827457C84006E86AE /* Icon_40x40.png */,
 			);
 			path = Icons;
+			sourceTree = "<group>";
+		};
+		F487A8902BBD293300575CFE /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				F487A8922BBD298300575CFE /* BeepBeep.wav */,
+				F487A8932BBD298300575CFE /* Buzzer.wav */,
+				F487A8912BBD298300575CFE /* Chirp.wav */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,7 +284,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1310;
-				LastUpgradeCheck = 1310;
+				LastUpgradeCheck = 1530;
 				TargetAttributes = {
 					F44D897727457A43006E86AE = {
 						CreatedOnToolsVersion = 13.1;
@@ -269,11 +300,12 @@
 				};
 			};
 			buildConfigurationList = F44D897327457A43006E86AE /* Build configuration list for PBXProject "EKtimer" */;
-			compatibilityVersion = "Xcode 13.0";
+			compatibilityVersion = "Xcode 15.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				sv,
 				Base,
 			);
 			mainGroup = F44D896F27457A43006E86AE;
@@ -293,6 +325,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F487A8962BBD298300575CFE /* Buzzer.wav in Resources */,
 				F44D89EA27457C84006E86AE /* Icon_20x20.png in Resources */,
 				F44D89F327457C84006E86AE /* Icon_180x180.png in Resources */,
 				F44D89EC27457C84006E86AE /* Icon_76x76.png in Resources */,
@@ -301,16 +334,19 @@
 				F44D89EF27457C84006E86AE /* Icon_58x58.png in Resources */,
 				F4B49B4827468892003BFD1B /* Assets.xcassets in Resources */,
 				F44D89EE27457C84006E86AE /* Icon_1024x1024.png in Resources */,
+				F487A8952BBD298300575CFE /* BeepBeep.wav in Resources */,
 				F44D89E927457C84006E86AE /* Icon_80x80.png in Resources */,
 				F44D89F527457C84006E86AE /* Icon_120x120.png in Resources */,
 				F44D89ED27457C84006E86AE /* Icon_29x29.png in Resources */,
 				F44D89F127457C84006E86AE /* Icon.svg in Resources */,
 				F4B49B902747DB19003BFD1B /* Launch Screen.storyboard in Resources */,
 				F44D89F627457C84006E86AE /* Icon_40x40.png in Resources */,
+				F487A8982BC5944900575CFE /* Localizable.xcstrings in Resources */,
 				F44D89F227457C84006E86AE /* Icon_152x152.png in Resources */,
-				F4B49B502747C080003BFD1B /* Main.storyboard in Resources */,
+				F487A8AE2BC5B7B400575CFE /* Main.storyboard in Resources */,
 				F4B49B4C27478A93003BFD1B /* Settings.bundle in Resources */,
 				F44D89F427457C84006E86AE /* Icon_87x87.png in Resources */,
+				F487A8942BBD298300575CFE /* Chirp.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,12 +371,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4378B1B2BC84D070077C65F /* ClockDevices.swift in Sources */,
 				F4B49B4A2746C79D003BFD1B /* Westerstrand.swift in Sources */,
 				F4B49B96274E41E0003BFD1B /* DeviceListController.swift in Sources */,
-				F44D898027457A43006E86AE /* TimerListController.swift in Sources */,
+				F4B289732BB448E2002AC024 /* TimeUtils.swift in Sources */,
 				F44D897C27457A43006E86AE /* AppDelegate.swift in Sources */,
+				F487A88E2BBC783B00575CFE /* AudioPlayback.swift in Sources */,
+				F40217472BB1A8E700B7D86D /* TimerController.swift in Sources */,
+				F4B289752BB6E31A002AC024 /* SequenceEditController.swift in Sources */,
 				F4B49B9227481DF2003BFD1B /* AppData.swift in Sources */,
-				F4B49B94274BDD9F003BFD1B /* TimerEdit.swift in Sources */,
+				F4B49B94274BDD9F003BFD1B /* StepEditController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,6 +415,18 @@
 			targetProxy = F44D899927457A47006E86AE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F487A8AD2BC5B7B400575CFE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F487A8AC2BC5B7B400575CFE /* Base */,
+				F487A8AF2BC5B7B400575CFE /* mul */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		F44D89A027457A47006E86AE /* Debug */ = {
@@ -414,6 +466,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -475,6 +528,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -503,12 +557,14 @@
 				DEVELOPMENT_TEAM = R93CLAT3A9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EKtimer/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = EKtimer;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -532,12 +588,14 @@
 				DEVELOPMENT_TEAM = R93CLAT3A9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EKtimer/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = EKtimer;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
