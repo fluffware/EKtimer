@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg id="svg4136" width="100" height="100" enable-background="new" version="1.1" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <metadata id="metadata4142">
+  <rdf:RDF>
+   <cc:Work rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs id="defs4140">
+  <linearGradient id="linearGradient4301" x1="4.1442" x2="46.45" y1="3.3776" y2="47.237" gradientTransform="translate(-2.8374e-6)" gradientUnits="userSpaceOnUse">
+   <stop id="stop4169" stop-color="#8e8e8e" offset="0"/>
+   <stop id="stop4175" stop-color="#838383" offset=".43699"/>
+   <stop id="stop4177" stop-color="#323232" offset=".52187"/>
+   <stop id="stop4171" stop-color="#323232" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient4303" x1="23.484" x2="23.311" y1="3.0322" y2="46.546" gradientTransform="translate(-2.8374e-6)" gradientUnits="userSpaceOnUse">
+   <stop id="stop4307" stop-color="#6b6c6e" offset="0"/>
+   <stop id="stop4309" stop-color="#444549" offset="1"/>
+  </linearGradient>
+ </defs>
+ <g id="layer53">
+  <g id="layer4">
+   <g id="g4890">
+    <rect id="rect4163-0" width="50" height="50" rx="3" ry="3" color="#000000" enable-background="accumulate"/>
+    <rect id="rect4165-7" x=".5" y=".5" width="49" height="49" rx="3" ry="3" color="#000000" enable-background="accumulate" fill="url(#linearGradient4301)"/>
+    <rect id="rect4179-3" x="2" y="2" width="46" height="46" rx="2" ry="2" color="#000000" enable-background="accumulate" fill="url(#linearGradient4303)"/>
+   </g>
+  </g>
+ </g>
+ <g id="layer55">
+  <g id="layer65">
+   <g id="layer47">
+    <g id="g4359" transform="translate(2.5)" fill="#fff">
+     <rect id="rect4355" x="10" y="10" width="10" height="30" color="#000000" enable-background="accumulate"/>
+     <rect id="rect4357" x="25" y="10" width="10" height="30" color="#000000" enable-background="accumulate"/>
+    </g>
+   </g>
+  </g>
+ </g>
+</svg>
