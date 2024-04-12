@@ -257,10 +257,10 @@ class AppData
     }
     
     class func remove(sequence: TimerSequence) {
-        if var sequences = AppData.sequences {
+        if let sequences = AppData.sequences {
             for (i,s) in sequences.enumerated() {
                 if s === sequence {
-                    sequences.remove(at: i)
+                    AppData.sequences?.remove(at: i)
                     break
                 }
             }
