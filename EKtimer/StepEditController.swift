@@ -7,11 +7,12 @@
 
 import Foundation
 import UIKit
-class TimerEditController: UIViewController
+class StepEditController: UIViewController
 {
     var time_str = "000000";
     var timer_index = 0
     var first_entry = true
+    weak var step: TimerStep? = nil
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var timeField: UILabel!
     
@@ -62,7 +63,8 @@ class TimerEditController: UIViewController
         text.selectedTextRange = text.textRange(from: text.beginningOfDocument, to: text.endOfDocument)
     }
     
-    private func get_preset_time() -> TimeInterval
+   
+    private func getTime() -> TimeInterval
     {
         let i1 = time_str.index(time_str.startIndex, offsetBy: 2)
         let i2 = time_str.index(i1, offsetBy: 2)
@@ -72,32 +74,33 @@ class TimerEditController: UIViewController
         let preset = (Int(h_str)! * 60 + Int(m_str)!) * 60 + Int(s_str)!
         return TimeInterval(preset)
     }
-    
-    private func saveTimer() -> TimerState
-    {
-        
-        return AppData.getTimer()
-    }
    
-    @IBAction func resetPressed(_ sender: UIButton) {
-        saveTimer().reset()
+    @IBAction func okPressed(_ sender: UIButton) {
+        if let step = step {
+            step.name = nameField.text ?? ""
+            step.duration = getTime()
+            
+        }
         self.navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func cancelPressed(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    
     override func viewWillAppear(_ animated: Bool) {
-        print("Editor will apear")
+        print("Step editor will apear")
         super.viewWillAppear(animated)
-        let timer = AppData.getTimer()
-        nameField.text = ""
-        
-        let seconds = Int(abs(timer.preset()))
-        let minutes = seconds / 60
-        let hours = minutes / 60
-        
-        time_str = String(format: "%02d%02d%02d", hours%100, minutes%60, seconds%60)
-        timeField.text = String(format: "%02d%02d%02d", hours%100, minutes%60, seconds%60)
-        first_entry = true
-        updatePresetField()
+        if let step = step {
+            nameField.text = step.name
+            
+            let time = step.duration
+            
+            timeField.text = TimeUtils.format(interval: time)
+            first_entry = true
+            updatePresetField()
+        }
     }
 }
     

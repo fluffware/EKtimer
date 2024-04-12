@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="30"
+   height="30"
+   viewBox="0 0 26.458333 26.458333"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25)"
+   sodipodi:docname="SilenceAlarm.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#686868"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="true"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     showguides="true"
+     inkscape:zoom="6.9904296"
+     inkscape:cx="-1.3590009"
+     inkscape:cy="17.667011"
+     inkscape:window-width="1512"
+     inkscape:window-height="842"
+     inkscape:window-x="0"
+     inkscape:window-y="38"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <inkscape:path-effect
+       effect="mirror_symmetry"
+       start_point="12.364126,2.1382268"
+       end_point="12.364126,24.097429"
+       center_point="12.364126,13.117828"
+       id="path-effect1"
+       is_visible="true"
+       lpeversion="1.2"
+       lpesatellites=""
+       mode="free"
+       discard_orig_path="false"
+       fuse_paths="true"
+       oposite_fuse="false"
+       split_items="false"
+       split_open="false"
+       link_styles="false" />
+  </defs>
+  <g
+     inkscape:label="Lager 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       id="path1"
+       style="fill:#000000;stroke:none;stroke-width:1"
+       d="M 12.333442 3.2177191 A 1.3247278 1.2985983 0 0 0 11.008802 4.5165201 A 1.3247278 1.2985983 0 0 0 11.17589 5.1400824 C 10.549127 5.3049367 9.9464065 5.5823673 9.3792723 5.9445122 C 10.6611 7.2307401 11.941167 8.5184952 13.229166 9.7978514 L 16.331475 6.695543 C 15.488719 5.9347548 14.524321 5.3855932 13.499606 5.126302 A 1.3247278 1.2985983 0 0 0 13.658081 4.5165201 A 1.3247278 1.2985983 0 0 0 12.333442 3.2177191 z M 6.2494031 9.6789956 C 5.7644924 10.751107 5.4499009 11.952566 5.3622911 13.229166 C 5.1981236 15.62132 4.976214 17.227232 4.6853298 18.338243 C 6.3902151 16.635703 8.100244 14.938242 9.7978514 13.229166 L 6.2494031 9.6789956 z M 18.949747 10.941623 C 18.186004 11.703621 17.4206 12.463913 16.660482 13.229166 L 19.650824 16.221232 C 19.540923 15.389819 19.447387 14.406293 19.366604 13.229166 C 19.311935 12.432553 19.167277 11.666902 18.949747 10.941623 z M 13.229166 16.660482 L 6.0168592 23.871066 C 7.2947745 24.028751 8.620295 24.078847 10.516154 24.091552 A 1.829386 1.829386 0 0 0 10.504096 24.260362 A 1.829386 1.829386 0 0 0 12.333442 26.089708 A 1.829386 1.829386 0 0 0 14.162787 24.260362 A 1.829386 1.829386 0 0 0 14.154175 24.091552 C 16.818242 24.074802 18.366004 23.992444 20.203762 23.635077 C 17.871652 21.318115 15.561514 18.977179 13.229166 16.660482 z " />
+    <path
+       id="rect3"
+       style="fill:#000000;stroke:none;stroke-width:1"
+       d="M 3.0572432 -1.788061 C 2.9367433 -1.6675611 2.8623592 -1.5025697 2.8623592 -1.3179032 L 2.8623592 1.3179032 C 2.8623592 1.6872362 3.159286 1.984163 3.5286189 1.984163 L 16.724704 1.984163 L 16.724704 15.180248 C 16.724704 15.54958 17.021632 15.846508 17.390963 15.846508 L 20.02677 15.846508 C 20.396103 15.846508 20.69303 15.54958 20.69303 15.180248 L 20.69303 1.984163 L 33.889114 1.984163 C 34.258447 1.984163 34.555374 1.6872362 34.555374 1.3179032 L 34.555374 -1.3179032 C 34.555374 -1.6872362 34.258447 -1.984163 33.889114 -1.984163 L 20.69303 -1.984163 L 20.69303 -15.180248 C 20.69303 -15.54958 20.396103 -15.846508 20.02677 -15.846508 L 17.390963 -15.846508 C 17.206298 -15.846508 17.041306 -15.772123 16.920806 -15.651623 C 16.800306 -15.531125 16.724704 -15.364914 16.724704 -15.180248 L 16.724704 -1.984163 L 3.5286189 -1.984163 C 3.3439525 -1.984163 3.1777431 -1.9085608 3.0572432 -1.788061 z "
+       transform="rotate(45)" />
+  </g>
+</svg>

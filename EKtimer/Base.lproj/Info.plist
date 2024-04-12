@@ -4,6 +4,11 @@
 <dict>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
+		<key>UISceneConfigurations</key>
+		<dict>
+			<key>UIWindowSceneSessionRoleApplication</key>
+			<array/>
+		</dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
 		<false/>
 	</dict>
