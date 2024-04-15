@@ -21,6 +21,18 @@ class TimerSounds
     
     static private var players = [AVAudioPlayer?](repeating: nil, count: sounds.count)
     static private var activePlayer: AVAudioPlayer? = nil
+    
+    static private let audioSession = {
+        let s = AVAudioSession.sharedInstance()
+        do {
+            // Set the audio session category and mode.
+            try s.setCategory(.playback, mode: .default)
+        } catch {
+            print("Failed to set the audio session configuration")
+        }
+        return s
+    }()
+    
     static let REPEAT_FOREVER = 0
     static private var repeatTimer: Timer? = nil
     class func getNames() -> [String]
@@ -68,7 +80,7 @@ class TimerSounds
         repeatTimer?.invalidate()
         player.play()
         var times = times
-        if times > 1 {
+        if times != 1 {
             repeatTimer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: true, block: {_ in
                 player.play();
                 if times != REPEAT_FOREVER {

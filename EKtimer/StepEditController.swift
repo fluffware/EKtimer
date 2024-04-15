@@ -93,7 +93,7 @@ class StepEditController: UIViewController
         if s >= 60 || m >= 60 {
             timeField.textColor = UIColor.red
         } else {
-            timeField.textColor = nil
+            timeField.textColor = UIColor.white
         }
         timeField?.text = h_str+":"+m_str+":"+s_str
     }
