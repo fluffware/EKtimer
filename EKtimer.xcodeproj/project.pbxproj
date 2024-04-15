@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F40217472BB1A8E700B7D86D /* TimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40217462BB1A8E700B7D86D /* TimerController.swift */; };
 		F4378B1B2BC84D070077C65F /* ClockDevices.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4378B1A2BC84D070077C65F /* ClockDevices.swift */; };
+		F4378B1D2BCD773C0077C65F /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = F4378B1C2BCD773C0077C65F /* PrivacyInfo.xcprivacy */; };
 		F44D897C27457A43006E86AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44D897B27457A43006E86AE /* AppDelegate.swift */; };
 		F44D899327457A47006E86AE /* EKtimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44D899227457A47006E86AE /* EKtimerTests.swift */; };
 		F44D899D27457A47006E86AE /* EKtimerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44D899C27457A47006E86AE /* EKtimerUITests.swift */; };
@@ -64,6 +65,7 @@
 /* Begin PBXFileReference section */
 		F40217462BB1A8E700B7D86D /* TimerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerController.swift; sourceTree = "<group>"; };
 		F4378B1A2BC84D070077C65F /* ClockDevices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockDevices.swift; sourceTree = "<group>"; };
+		F4378B1C2BCD773C0077C65F /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		F44D897827457A43006E86AE /* EKtimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EKtimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F44D897B27457A43006E86AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F44D898E27457A47006E86AE /* EKtimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EKtimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -168,6 +170,7 @@
 				F487A88D2BBC783B00575CFE /* AudioPlayback.swift */,
 				F487A8972BC5944900575CFE /* Localizable.xcstrings */,
 				F4378B1A2BC84D070077C65F /* ClockDevices.swift */,
+				F4378B1C2BCD773C0077C65F /* PrivacyInfo.xcprivacy */,
 			);
 			path = EKtimer;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 				F44D89F027457C84006E86AE /* Icon_60x60.png in Resources */,
 				F44D89EB27457C84006E86AE /* Icon_167x167.png in Resources */,
 				F44D89EF27457C84006E86AE /* Icon_58x58.png in Resources */,
+				F4378B1D2BCD773C0077C65F /* PrivacyInfo.xcprivacy in Resources */,
 				F4B49B4827468892003BFD1B /* Assets.xcassets in Resources */,
 				F44D89EE27457C84006E86AE /* Icon_1024x1024.png in Resources */,
 				F487A8952BBD298300575CFE /* BeepBeep.wav in Resources */,
