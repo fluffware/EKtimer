@@ -280,13 +280,16 @@ class AppData
             let prefix = "Device"+String(i)+"_";
             let name = devices_defaults.string(forKey: prefix + "Name")
             let ip = devices_defaults.string(forKey: prefix+"IP")
-            if let ip = ip, let name = name {
-                if ip != "0.0.0.0" && name != "" {
+            if let ip = ip, var name = name {
+                if ip != "0.0.0.0" {
+                    if name == "" {
+                        name = String(i)
+                    }
                     let device = Device()
                     device.name = name
                     device.host = ip
-                    device.intensity = Int(devices_defaults.string(forKey: prefix+"IP") ?? "") ?? 5
-                    device.beep_interval = Int(devices_defaults.string(forKey: prefix+"IP") ?? "") ?? 2
+                    device.intensity = Int(devices_defaults.string(forKey: prefix+"Intensity") ?? "") ?? 5
+                    device.beep_interval = Int(devices_defaults.string(forKey: prefix+"BeepLength") ?? "") ?? 2
                     AppData.devices.append(device)
                     device.connectedTimer?.devices.append(WeakDevice(device))
                 }
@@ -334,7 +337,7 @@ class AppData
     
     class func load_preferences() throws {
         try decode_devices(from: UserDefaults.standard)
-        // Since the sequenceis can only be changed from within the app, there is no reason to load the if we already have them
+        // Since the sequencies can only be changed from within the app, there is no reason to load the if we already have them
         if AppData.sequences == nil {
             try decode_sequencies(from: UserDefaults.standard)
         }

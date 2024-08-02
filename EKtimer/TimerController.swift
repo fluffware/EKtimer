@@ -105,6 +105,7 @@ class TimerController: UIViewController, UITableViewDataSource {
             updateTime()
             let _ = updateStepList()
             ClockDevices.stop()
+            TimerSounds.stop()
             print("Stop")
         }
     }
@@ -120,7 +121,7 @@ class TimerController: UIViewController, UITableViewDataSource {
             let _ = updateStepList()
             ClockDevices.set(function: ctxt.countUp() ? .count_up : .count_down)
             ClockDevices.reset(to: ctxt.preset())
-            
+            TimerSounds.stop()
             currentStep = 0
         }
     }

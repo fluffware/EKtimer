@@ -24,13 +24,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     {
         do {
             try AppData.load_preferences()
+            ClockDevices.connect(to: AppData.getDevices().map({$0.host}))
+            for dev in AppData.getDevices() {
+                ClockDevices.settings(for_host: dev.host, values: ["Intensity": UInt8(dev.intensity) as AnyObject, "SignalTime": UInt8(dev.beep_interval) as AnyObject])
+            }
         } catch {
             print("Failed to load preferences: \(error)")
         }
     }
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         loadPreferences()
-        ClockDevices.connect(to: AppData.getDevices().map({$0.host}))
+      
         return true
     }
     
@@ -50,7 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController?.dismiss(animated: false)
         print("applicationWillEnterForeground")
         loadPreferences()
-        ClockDevices.connect(to: AppData.getDevices().map({$0.host}))
+        
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {

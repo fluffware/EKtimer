@@ -18,7 +18,7 @@ class WesterstrandConnection
     
     var intensity: UInt8 = 5
     var signal_time: UInt8 = 3
-    init(to host: String)
+    init()
     {
         print("WesterstrandConnection")
     }
@@ -31,6 +31,12 @@ class WesterstrandConnection
         end_point = new_end_point
         setupConnection()
 
+    }
+    
+    func disconnect() {
+        end_point = nil;
+        connection!.stateUpdateHandler = nil;
+        connection!.cancel();
     }
     
     func setupConnection()
@@ -132,9 +138,9 @@ class WesterstrandConnection
     private func send(toChannel: UInt8,withData data: [UInt8])
     {
          var tx_data = Data([2,0,UInt8(data.count+4), 0x43, 0x48,
-                            toChannel])
+                            toChannel]) // STX, H,L, 'CH'
         tx_data.append(contentsOf: data)
-        tx_data.append(contentsOf: [3, 0x20])
+        tx_data.append(contentsOf: [3,0x20]) // ETX,BCC
         pending.insert(tx_data, at: 0)
         sendPending()
     }
@@ -150,9 +156,11 @@ class WesterstrandConnection
     func reset(to preset:TimeInterval)
     {
         stop()
-        set(time: preset)
         let function = preset > 0 ? Function.count_down:Function.count_up
         set(function: function)
+        if function == Function.count_down {
+            set(time: preset)
+        }
         send(toChannel: 0x33, withData: [0x32])
     }
     
@@ -175,4 +183,12 @@ class WesterstrandConnection
         send(toChannel: 0x32, withData: data)
     }
     
+    func settings(values: [String:AnyObject]) {
+        if let i = values["Intensity"] as? UInt8 {
+            intensity = min(max(i, 1),8) + 0x30
+        }
+        if let t = values["SignalTime"] as? UInt8 {
+            signal_time = min(t,20) + 0x30
+        }
+    }
 }
